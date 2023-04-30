@@ -1,0 +1,30 @@
+CREATE TABLE Cliente (
+    ID_cliente INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Endereço VARCHAR(200) NOT NULL,
+    Telefone VARCHAR(20) NOT NULL,
+    PRIMARY KEY (ID_cliente)
+);
+
+CREATE TABLE Funcionário (
+    ID_funcionário INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Departamento_ID INT NOT NULL,
+    PRIMARY KEY (ID_funcionário),
+    FOREIGN KEY (Departamento_ID) REFERENCES Departamento(ID_departamento)
+);
+
+CREATE TABLE Departamento (
+    ID_departamento INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    PRIMARY KEY (ID_departamento)
+);
+
+CREATE TABLE Produto (
+    ID_produto INT NOT NULL AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Preço DECIMAL(10,2) NOT NULL,
+    Fornecedor_ID INT NOT NULL,
+    PRIMARY KEY (ID_produto),
+    FOREIGN KEY (Fornecedor_ID) REFERENCES Fornecedor(ID_fornecedor)
+);
